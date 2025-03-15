@@ -46,14 +46,16 @@ A simplified diagram might be:
   - **React Flow** for runbook node-based automation builder.
   - **Google OAuth** integration for user login.
 - **Backend**:
-  - **Spring Boot** microservices for authentication, scanning, ticketing logic.
-  - **MySQL** for relational data (tenants, user info, tickets).
+  - **Spring Boot** microservices for authentication, scanning, runbook, ticketing logic.
+  - **MySQL** for relational data (tenants, user info, jobs, jira-config).
   - **Elasticsearch** for large scale searching & indexing findings.
-  - **Kafka** as the messaging layer for asynchronous job flow (scanning, parsing, etc.).
+  - **Kafka** as the messaging layer for asynchronous job flow (jfc, auth, parser, bg-jobs etc.).
 - **Deployment**: 
   - Docker, and local environment with Node / Java / Kafka / MySQL / ES.
 
 
+## Demo 🎥
+[![Watch the video](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://youtu.be/ezfPl8kUdbg?si=lgL4F4HqBmOTp7s1)
 
 
 
