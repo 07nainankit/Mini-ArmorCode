@@ -7,12 +7,9 @@ A multi-tenant security findings management platform featuring dashboards, scann
 - [Features](#features)
 - [Architecture](#architecture)
 - [Tech Stack](#tech-stack)
-- [Setup & Installation](#setup--installation)
-- [Usage](#usage)
 - [Screenshots / Demo](#screenshots--demo)
-- [License](#license)
 
-## Features
+## Features 🌟
 
 1. **Google Auth** – Single sign-on using OAuth.
 2. **Tenant Management** – Switch across multiple tenants from the profile page or user dropdown.
@@ -28,20 +25,20 @@ A multi-tenant security findings management platform featuring dashboards, scann
    - Graphical builder using React Flow to define triggers (like “New Scan”), filters (severity, state), and actions (create ticket, update state).
    
 
-## Architecture
+## Architecture 🛠️
 
 - **Separate Modules**:
   - `auth-server` for user authentication and authorization of requests. It is first point of contact for any request from frontend.
   - `job-flow-control` to manage all the jobs  like - Scan Job, Ticket Job, Update Job or Rubook Job etc, produced in the application based on the concurrency rules.
-  - `background-job-handler` to process updates and runbook in the background.
-  - `parser` to parse scan results to armorcode schema & store them in Elasticsearch.
+  - `background-job-handler` to process ticketing, updates and runbook jobs in the background.
+  - `parser` to parse scan results to armorcode schema, also apply de-duplication algo & store them in Elasticsearch.
 
 A simplified diagram might be:
 
 <img width="1486" alt="Mini armorcode" src="https://github.com/user-attachments/assets/11aeab48-7879-4281-b852-0a2b67538c85" />
 
 
-## Tech Stack
+## Tech Stack 👨🏻‍💻
 
 - **Frontend**:
   - **React.js** with **Ant Design** for UI components.
@@ -56,7 +53,6 @@ A simplified diagram might be:
 - **Deployment**: 
   - Docker, and local environment with Node / Java / Kafka / MySQL / ES.
 
-## Setup & Installation
 
 
 
