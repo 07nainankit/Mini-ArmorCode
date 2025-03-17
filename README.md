@@ -31,6 +31,7 @@ A multi-tenant security findings management platform featuring dashboards, scann
   - `auth-server` for user authentication and authorization of requests. It is first point of contact for any request from frontend.
   - `job-flow-control` to manage all the jobs  like - Scan Job, Ticket Job, Update Job or Rubook Job etc, produced in the application based on the concurrency rules.
   - `background-job-handler` to process ticketing, updates and runbook jobs in the background.
+  - `tool-scheduler` to handle findings from various tools and store them.
   - `parser` to parse scan results to armorcode schema, also apply de-duplication algo & store them in Elasticsearch.
 
 A simplified diagram might be:
@@ -55,36 +56,64 @@ A simplified diagram might be:
 
 
 ## Demo 🎥
-<a href="https://drive.google.com/drive/folders/1Qt5lxD4JF53tgJD454I_h1Qe_Pi-5xsl?usp=sharing" target="_blank">
-    <img width="20px" height="20px" src="https://github.com/user-attachments/assets/3b575ae3-a6cc-4f96-863c-05b8a8b6af6e" alt="logo">
-     All demos !!!
-</a>
 
-   <a href="https://drive.google.com/file/d/1-vDj1tAgq67sBu_u_VhGzWMgLOWZ0um-/view?usp=sharing" target="_blank">
-       <img width="20px" height="20px" src="https://github.com/user-attachments/assets/3b575ae3-a6cc-4f96-863c-05b8a8b6af6e" alt="logo">
-        Login and Dashboard
-   </a>
-   
-   <a href="https://drive.google.com/file/d/1oTQs0fbTNZEV1Aq9Or-NH60ioalmrciC/view?usp=drive_link" target="_blank">
-       <img width="20px" height="20px" src="https://github.com/user-attachments/assets/3b575ae3-a6cc-4f96-863c-05b8a8b6af6e" alt="logo">
-        Findings and RBAC
-   </a>
-   
-   <a href="https://drive.google.com/file/d/12uRNtmzKv_vR4Ed-DfD3bxZKygYi162A/view?usp=drive_link" target="_blank">
-       <img width="20px" height="20px" src="https://github.com/user-attachments/assets/3b575ae3-a6cc-4f96-863c-05b8a8b6af6e" alt="logo">
-        Ticketing
-   </a>
-   
-   <a href="https://drive.google.com/file/d/1HbR_0pss1sfx2QLfwjWF_3sKBeH0hVgU/view?usp=drive_link" target="_blank">
-       <img width="20px" height="20px" src="https://github.com/user-attachments/assets/3b575ae3-a6cc-4f96-863c-05b8a8b6af6e" alt="logo">
-         Runbooks
-   </a>
-   
-   <a href="https://drive.google.com/file/d/1XYGdC9fqmBmmnVTa8CdWyd3pf2vMcZ3b/view?usp=drive_link" target="_blank">
-       <img width="20px" height="20px" src="https://github.com/user-attachments/assets/3b575ae3-a6cc-4f96-863c-05b8a8b6af6e" alt="logo">
-         JFC demo
-   </a>
+<div style="display: flex; justify-content: space-evenly; flex-wrap: wrap;">
+<ul style="text-align: justify; list-style-type: disc;">
+  <li>
+    <a href="https://drive.google.com/drive/folders/1Qt5lxD4JF53tgJD454I_h1Qe_Pi-5xsl?usp=sharing" target="_blank">
+      <img width="20px" height="20px" src="https://github.com/user-attachments/assets/3b575ae3-a6cc-4f96-863c-05b8a8b6af6e" alt="logo">
+      All demos !!!
+    </a>
+  </li>
+  <li>
+    <a href="https://drive.google.com/file/d/1-vDj1tAgq67sBu_u_VhGzWMgLOWZ0um-/view?usp=sharing" target="_blank">
+      <img width="20px" height="20px" src="https://github.com/user-attachments/assets/3b575ae3-a6cc-4f96-863c-05b8a8b6af6e" alt="logo">
+      Login and Dashboard
+    </a>
+  </li>
+  <li>
+    <a href="https://drive.google.com/file/d/1oTQs0fbTNZEV1Aq9Or-NH60ioalmrciC/view?usp=drive_link" target="_blank">
+      <img width="20px" height="20px" src="https://github.com/user-attachments/assets/3b575ae3-a6cc-4f96-863c-05b8a8b6af6e" alt="logo">
+      Findings and RBAC
+    </a>
+  </li>
+  <li>
+    <a href="https://drive.google.com/file/d/12uRNtmzKv_vR4Ed-DfD3bxZKygYi162A/view?usp=drive_link" target="_blank">
+      <img width="20px" height="20px" src="https://github.com/user-attachments/assets/3b575ae3-a6cc-4f96-863c-05b8a8b6af6e" alt="logo">
+      Ticketing
+    </a>
+  </li>
+  <li>
+    <a href="https://drive.google.com/file/d/1HbR_0pss1sfx2QLfwjWF_3sKBeH0hVgU/view?usp=drive_link" target="_blank">
+      <img width="20px" height="20px" src="https://github.com/user-attachments/assets/3b575ae3-a6cc-4f96-863c-05b8a8b6af6e" alt="logo">
+      Runbooks
+    </a>
+  </li>
+  <li>
+    <a href="https://drive.google.com/file/d/1XYGdC9fqmBmmnVTa8CdWyd3pf2vMcZ3b/view?usp=drive_link" target="_blank">
+      <img width="20px" height="20px" src="https://github.com/user-attachments/assets/3b575ae3-a6cc-4f96-863c-05b8a8b6af6e" alt="logo">
+      JFC demo
+    </a>
+  </li>
+</ul>
+</div>
 
+## 📂 Project Structure
+
+```
+Mini-ArmorCode/
+├── Frontend/
+│   └── Armorcode-Frontend/     # UI of application
+├── Backend/
+│   ├── Auth-Server/            # All api's handled 
+│   ├── Job-Flow-Control/       # All jobs handled
+│   ├── Bg-Jobs-Handler/        # bg-jobs handled
+│   ├── Tool-Scheduler/         # Tools findings handled
+│   └── Parser/                 # Findings parsed 
+├── .gitignore
+├── README.md
+└── ...
+```
 
 
 
